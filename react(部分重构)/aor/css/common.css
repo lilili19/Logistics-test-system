@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.lf{
+    float: left;
+}
+.rt{
+    float: right;
+}
+ul,li,ol,dl,dd,dt{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+input{
+    outline: none;
+}
+
+#pager ul.pages {
+    display: block;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 0;
+}
+#pager ul.pages *{
+    list-style: none;
+    float: left;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    margin: 0 5px 0 0;
+    padding: 5px;
+}
+#pager ul.pages span{background-color: #ddd;cursor: move;}
+#pager ul.pages li{padding: 6px;cursor: pointer;}       
+/*#pager ul.pages div{cursor: pointer;}       
+#pager ul.pages p{cursor: pointer;} */      
+#pager ul.pages input{height: 31px;width: 50px;border-radius: 2px;}       
+#pager ul.pages button{
+    font-size: 14px;
+    cursor: pointer;height: 31px;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    padding: 6px 12px;    
+    border-radius: 2px;
+}       
+#pager ul.pages button:hover{background-color: #5b7dde;/*color: black;*/}       
+#preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 1000000000;
+    display: none;
+}
+#preloader img{
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    margin-left: -64px;
+    margin-top: -64px;
+}
+
+.show{background-color:red;color:white;}
+
+.not{background-color: #ddd;cursor: move;}
+.yes{cursor: pointer;}
+
+#main *{box-sizing: border-box;}
+.layui-layer select{width: 40px;height: 30px;}
+.layui-layer textarea{width: 200px;height: 100px;resize:none;}
+#exp table button{padding: 5px;}
+
+/*searchBoxInfo*/
+#tabSearchBox *{text-align: center;}
+#layuiContent button{width: 50px;padding: 5px 0px;margin-top: -10px;}
+#searchBoxInfo{display: none;width: 360px;min-height: 400px;}
+#searchBoxInfo .searchCountry{overflow: hidden;width: 329px;}
+#searchBoxInfo .searchCountry p{float: left;width: 164px;margin: 0;text-align: center;line-height: 36px;border-bottom: 0;font-weight: bold;cursor: pointer;background-color: #ddd;}
+#searchBoxInfo .searchCountry p:nth-child(1){border-right: 1px solid #eee;}
+.listParamBox .preloader{
+    position: absolute;
+    top: 77px;
+    left: 0;
+    width: 100%;
+    height: 290px;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 1000000000;
+}
+.listParamBox .preloader img {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    margin-left: -64px;
+    margin-top: -64px;
+}
+#searchBoxInfo .searchCountryList table{border: 1px solid #ddd;color: #08c;}
+#searchBoxInfo .searchCountryList tr:nth-child(2n-1){background-color: #eee;}
+#searchBoxInfo .searchCountryList td{text-align: center;padding: 5px 0px;width: 50%;}
+#searchBoxInfo .searchCountryList ul{width: 329px;margin: 0;}
+#searchBoxInfo .searchCountryList li{width: 100%;border-bottom: 1px solid #eee;text-align: center;padding: 8px 0px;}
+#searchBoxInfo .searchCountryList a{color: #08c;}
+#searchBoxInfo .searchCountry .p_{background-color: pink;}
+.pagesSearchBox{
+    box-sizing: border-box;
+    display: block;
+    border: 0;
+    text-transform: uppercase;
+    
+    padding: 0;
+    margin: 0;
+}
+.pagesSearchBox *{margin-bottom: 5px;
+    list-style: none;
+    float: left;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    padding: 3px;font-size: 14px;
+}          
+.pagesSearchBox li{cursor: pointer;margin: 0px 3px;height: 19px;}            
+.pagesSearchBox input{height: 31px;width: 50px;border-radius: 2px;display: none;}       
+.pagesSearchBox button{display: none;
+    font-size: 14px;
+    cursor: pointer;height: 31px;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    padding: 6px 12px;    
+    border-radius: 2px;
+}       
+.pagesSearchBox button:hover{background-color: #5b7dde;/*color: black;*/}       
+#pagesSearchBox p{margin: 0;height: auto;}       
+#pagesSearchBox span{background-color: #ddd;cursor: move;width: auto;} 
+#searchBoxInfo .searchCountryLocation{position: absolute;background-color: #eee;width: 295px;left: 46px;top: 32px;}      
+#searchBoxInfo .searchCountryLocation li{width: 100%;text-align: center;border: 1px solid #ccc;padding: 8px 0px;}      
+#searchBoxInfo .searchCountryLocation li a{color: #08c;}      
+#searchBoxInfo .searchCountryLocation li:hover{background-color: #ddd;}      
