@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="checkView.aspx.cs" Inherits="checkViewApp.checkView" %>
