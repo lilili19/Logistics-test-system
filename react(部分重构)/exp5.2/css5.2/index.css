@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+#main{
+	background: #999;
+	width: 1000px;
+	margin: 30px auto;
+	padding: 15px;
+	border-radius: 8px;
+}
+#main .content{
+	background: #ccc;
+	margin: 0 auto;
+	width: 970px;
+	padding: 15px;
+	border-radius: 8px;
+}
+
+#exp{
+	background: #fff;
+	padding: 15px;
+}
+#exp table thead td{
+	font-weight: bold;
+}
+#exp table td{
+	padding: 5px 10px;
+	border: 1px solid #ddd;
+}
+#exp table a{
+	color: #E4393C;
+}
+#exp table a:hover{
+	color: #f60;
+	font-weight: bold;
+}
+
+#page{
+	height: 35px;
+	margin-top: 20px;
+}
+#page p{
+	text-align: center;
+}
+#page p a{
+	padding: 5px;
+	margin: 5px;
+	font-size: 1.2rem;
+}
+#page p>span{
+	padding: 0 10px;
+	display: inline-block;
+	border-left: 1px solid #dbdbdb;
+	border-right: 1px solid #dbdbdb;
+}
+#page p>span input{
+	width: 25px;
+}
+
+#layuiContent{
+	padding: 15px;
+}
+#layuiContent p{
+	height: 35px;
+	border-bottom: 1px solid #dbdbdb;
+	margin: 8px;
+}
+#layuiContent span{
+	display: inline-block;
+	width: 90px;
+}
+#layuiContent input{
+	width: 200px;
+	height: 30px;
+	padding: 0 10px;
+}
+#layuiContent button{
+	width: 100%;
+}
+#selPageSize{
+	height: 31px;
+	border: 1px solid #ccc;
+}

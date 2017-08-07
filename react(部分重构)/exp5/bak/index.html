@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../plugins/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        #app{
+            padding: 0 15px 15px 15px;
+        }
+        #app .layui-tab-card>.layui-tab-title{
+            background: #aaa;
+        }
+        #app .layui-tab-title li{
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #fff;
+        }
+        #app .layui-tab-title li.layui-this{
+            color: #E4393C;
+            background: #fff;
+        }
+        #app .layui-tab-content iframe{
+            width: 100%;
+            min-height: 800px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li>分区表</li>
+                <li class="layui-this">销售价</li>
+                <li>客户价</li>
+                <li>成本价</li>
+                <li>公布价模版</li>
+                <li>销售系数</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item">
+                    <!--<iframe src="/APL-EXP5/v/EXPrice/area1/index.html" frameborder="0" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>-->
+                </div>
+                <div class="layui-tab-item layui-show">
+                    <iframe src="price/priceList.html" frameborder="0"></iframe>
+                </div>
+                <div class="layui-tab-item">
+                    <!--<iframe src="/APL-EXP5/v/EXPrice/area3/index.html" frameborder="0"></iframe>-->
+                </div>
+                <div class="layui-tab-item">
+                    <!--<iframe src="/APL-EXP5/v/EXPrice/area4/index.html" frameborder="0"></iframe>-->
+                </div>
+                <div class="layui-tab-item">
+                    <!--<iframe src="/APL-EXP5/v/EXPrice/area5/index.html" frameborder="0"></iframe>-->
+                </div>
+                <div class="layui-tab-item">
+                    <!--<iframe src="/APL-EXP5/v/EXPrice/area6/index.html" frameborder="0"></iframe>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../plugins/layui/layui.js"></script>
+    <script>
+        layui.use('element',function(){
+            let element = layui.element();
+        });
+    </script>
+</body>
+</html>

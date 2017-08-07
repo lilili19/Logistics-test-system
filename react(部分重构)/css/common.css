@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.lf{
+    float: left;
+}
+.rt{
+    float: right;
+}
+ul,li,ol,dl,dd,dt{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    outline: none!important; /*去除a标签点击有虚线的问题*/
+}
+a:hover{
+    text-decoration: none;
+}
+input{
+    outline: none!important; /*去除input标签点击有虚线的问题*/
+}
+
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+    font-weight: normal; 
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+    font-weight: normal; 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+    font-weight: normal; 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+    font-weight: normal; 
+} 

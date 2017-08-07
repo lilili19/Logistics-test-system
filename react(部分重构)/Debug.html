@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Debug</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">      
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1">
+        <table style="margin-left: 20px; margin-top: 10px">
+            <tr style="height: 39px; width: 800px">
+                <td>URL:</td>
+                <td style="text-align: left">
+                    <input class="input-text" style="width: 900px; height:24px " type="text" id="txtUrl" /> <br>
+
+                    <input style="width: 70px;  " type="button" class="btn btn-success" value="AJAX" onclick="goto('go')" />
+                    <input style="width: 70px; margin-left: 20px;" type="button"  class="btn btn-success" value="POST" onclick="goto('post')" />
+                    <input style="width: 70px; margin-left: 20px;" type="button"  class="btn btn-success" value="XML" onclick="goto('postXML')" /> 
+                    <a style="margin-left: 20px;" class="btn btn-success" href="http://www.bejson.com/jsonviewernew" target="_blank">JSON校验</a>
+                    <a style="margin-left: 20px;" class="btn btn-success" href="Debug.html" target="_blank">New Dubug</a>
+                    <a style="margin-left: 20px;" class="btn btn-success" href="http://www.iciba.com" target="_blank">在线翻译</a>
+                    <a style="margin-left: 20px;" class="btn btn-success"  href="http://tool.oschina.net/encrypt"   target="_blank">加密工具</a>
+                    <a style="margin-left: 20px;" class="btn btn-success"  href="BuildCode.html"   target="_blank">生成代码</a>    
+                    <input style="width: 70px;margin-left: 20px;" type="button" class="btn btn-success" value="login" onclick="doLogin()" />                
+                    <a style="margin-left: 20px; margin-left: 20px;" class="btn btn-success"  href="menu.html"   target="_blank">菜单</a><br><br>
+                </td>
+            </tr>
+            <tr style="height: 39px">
+                <td>DATA:</td>
+                <td style="text-align: left">
+                    <textarea class="input-text" id="txtPostData" style="width: 900px; height: 100px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top;"><br />RETURN:</td>
+                <td style="text-align: left">
+                    <br /> <textarea id="txtData1"
+                                     style="width: 900px; height: 350px;"></textarea>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+
+        $(function () {
+
+            $("body").append("<div id=\"loading\" style=\"display:none;position:absolute;left:0px;top:0px;width:100%;height:100%;filter:Alpha(Opacity=30);opacity:0.3;background-color:#000000;z-index:10001; text-align:center; vertical-align:middle;\"><div style=\"position:absolute;font:11px '宋体';top:51%;left:50%;width:300px;height:200px;text-align:center; vertical-align:middle;border:0px solid #666699;background-color:#000000;padding:1px;line-height:22px;z-index:100;margin-top:-125px; margin-left:-170px;\"><img src=\"/v/images/load.gif\" /></div></div>");
+            //alert("ajaxStart");
+            $(document).ajaxStart(function () {
+                $("#loading").show();
+            });
+
+            $(document).ajaxStop(function () {
+                $("#loading").hide();
+            });
+        });
+
+        function doLogin() {
+
+            $.ajax({
+                type: "post",
+                url: "/ashx/remoteLogin.ashx",
+                data: "company=test&userId=admin&userPwd=a2017",
+                dataType: "json",
+                error: function (errData) { //返回失败后
+                    alert("Error loading " + errData);
+                },
+                success: function (resData) {
+                    $("#txtData1").val(resData.Message);
+                    var sid = resData.sid;
+                    if (sid != undefined) {
+                        $.ajax({
+                            type: "post",
+                            url: "http://192.168.1.115:85//ashx/remoteLogin.ashx",
+                            data: "sid=" + sid,
+                            dataType: "json",
+                            error: function (errData) { //返回失败后
+                                alert("Error loading " + errData);
+                            },
+                            success: function (resData2) {
+                                var msg = $("#txtData1").val() + "\r\n二次" + resData2.Message;
+                                $("#txtData1").val(msg);
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        function goto(dtype) {
+            var url = document.getElementById("txtUrl").value;
+            var postData = document.getElementById("txtPostData").value;
+
+            if (dtype == "post") {
+                creaForm("formExport", url, postData, "_blank");
+            }
+            else if (dtype == "postXML") {
+                //postData = '<?xml version="1.0" encoding="utf-8"?>' + postData;
+                //postObj = createXMLDoc(postData);
+
+                var xmlhttp = null;
+                if (window.ActiveXObject) {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else {
+                    $("#txtData1").val("create xmlhttp error");
+                    return;
+                }
+
+                xmlhttp.open("POST", "echo.page");
+                //xmlhttp.setRequestHeader("Content-Length", postData.length);
+                xmlhttp.setRequestHeader("CONTENT-TYPE", "text/xml;charset=UTF-8");
+                xmlhttp.onreadystatechange = function () {
+                    //alert("xmlhttp.onreadystatechange");
+                    if (xmlhttp.readyState == 4)
+                        $("#txtData1").val(xmlhttp.responseText);
+                    else
+                        $("#txtData1").val("xmlhttp.readyState=" + xmlhttp.readyState);
+                }
+                xmlhttp.send(postData);
+            }
+            else {
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    data: postData,
+                    dataType: "text",
+                    error: function (errData) { //返回失败后
+                        alert("Error loading " + errData);
+                    },
+                    success: function (resData) {
+                        $("#txtData1").val(resData);
+                    }
+                });
+            }
+        };
+
+        //创建表单
+        function creaForm(name, url, data, target) {
+            var formObj = null;
+            if ($("form") != null && $("form") != undefined) {
+                $("form").each(function () {
+                    if ($(this).attr("name") == name) {
+                        formObj = $(this);
+                    }
+                });
+            }
+
+            //alert(data);
+
+            var isNewForm = 0;
+            if (formObj != null) {
+                $(formObj).find("input").remove();
+            }
+            else {
+                formObj = $("<form></form>");
+                $(formObj).attr('name', name);
+                $(formObj).css('display', 'none');
+                if (target != undefined) $(formObj).attr('target', target);
+                $(formObj).attr('method', 'post');
+                isNewForm = 1;
+            }
+
+            var vals, inputObj;
+            var datas = data.split("&");
+            $(datas).each(function (i) {
+                vals = datas[i].split("=");
+                inputObj = $("<input type='hidden' name='" + vals[0] + "' />");
+                //inputObj.attr('value', vals[1]);
+                inputObj.val(vals[1]);
+                $(formObj).append(inputObj);
+            });
+
+            if (isNewForm == 1)
+                $(formObj).appendTo("body");
+
+            $(formObj).attr('action', url);
+            $(formObj).submit();
+        }
+
+        function createXMLDoc(text) {
+
+            var xmlDoc = null;
+
+            try //Firefox, Mozilla, Opera, etc.
+            {
+                var parser = new DOMParser();
+                xmlDoc = parser.parseFromString(text, "text/xml");
+            }
+
+            catch (e) { }
+
+            return xmlDoc;
+        }
+    </script>
+</body>
+</html>
