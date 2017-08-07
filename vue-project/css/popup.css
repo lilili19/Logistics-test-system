@@ -1,0 +1,66 @@
+html,body{height: 100%}
+.popupBox{width: 100%;height: 100%;position: absolute;top: 0;left: 0;display: none;}
+.popupReaer{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,.2);display: none;}
+.popup{
+	position: absolute;display: none;
+	-webkit-animation:scale 0.3s 1 linear;
+	-moz-animation:scale 0.3s 1 linear;
+	-o-animation:scale 0.3s 1 linear;
+	animation:scale 0.3s 1 linear;
+}
+.popup_{
+	position: absolute;
+	-webkit-animation:scale_ 0.2s 1 linear;
+	-moz-animation:scale_ 0.2s 1 linear;
+	-o-animation:scale_ 0.2s 1 linear;
+	animation:scale_ 0.2s 1 linear;
+	-webkit-transform:scale(0,0);
+	-moz-transform:scale(0,0);
+	-o-transform:scale(0,0);
+	transform:scale(0,0);
+}		
+@-webkit-keyframes scale{
+	0%{-webkit-transform:scale(0.1,0.1)}
+	100%{-webkit-transform:scale(1,1)}
+}
+@-moz-keyframes scale{
+	0%{-moz-transform:scale(0.1,0.1)}
+	100%{-moz-transform:scale(1,1)}
+}
+@-o-keyframes scale{
+	0%{-o-transform:scale(0.1,0.1)}
+	100%{-o-transform:scale(1,1)}
+}
+@keyframes scale{
+	0%{transform:scale(0.1,0.1)}
+	100%{transform:scale(1,1)}
+}
+@-webkit-keyframes scale_{
+	0%{-webkit-transform:scale(1,1);}
+	20%{-webkit-transform:scale(1.2,1.2);}
+	100%{-webkit-transform:scale(0,0)}
+}
+@-moz-keyframes scale_{
+	0%{-moz-transform:scale(1,1);}
+	20%{-moz-transform:scale(1.2,1.2);}
+	100%{-moz-transform:scale(0,0)}
+}
+@-o-keyframes scale_{
+	0%{-o-transform:scale(1,1);}
+	20%{-o-transform:scale(1.2,1.2);}
+	100%{-o-transform:scale(0,0)}
+}
+@keyframes scale_{
+	0%{transform:scale(1,1);}
+	20%{transform:scale(1.2,1.2);}
+	100%{transform:scale(0,0)}
+}
+.pShow .inner{background-color: white;border-radius: 4px;border-width: 1px;padding-bottom: 20px;}
+.pShow .inner .close{position: absolute;right: 15px;top: 14px;width: 16px;height: 16px;margin-left: 10px;font-size: 12px;cursor: pointer;font-size: 18px;background: url(../images/icon.png) no-repeat;background-position: 1px -40px;}
+.pShow .inner p{background-color: #F8F8F8;color: #333;padding: 0 80px 0 20px;line-height: 42px;border-bottom: 1px solid #eee;border-radius: 3px 3px 0 0;}
+.pShow .inner ul{padding:5px 15px 0px 15px;}
+.pShow .inner ul li{border-bottom: 1px solid #dbdbdb;;margin: 8px;overflow: hidden;height: 35px;padding-bottom: 5px;}
+.pShow .inner ul li span{width: 80px;display: inline-block;}
+.pShow .inner ul li input{height: 30px;width: 200px;padding: 0 10px;outline: 0;}
+.pShow .inner ul div{overflow: hidden;padding: 10px 0px;margin-top: 15px;}
+.pShow .inner ul div button{float: right;width: 60px;height: 28px;background-color: #2e8ded;color: white;border: 0;outline: 0;border-radius: 3px;font-size: 14px;line-height: 28px;font-weight: bold;}
