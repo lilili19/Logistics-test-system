@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#apl .apl-tool{
+    padding: 15px 15px 0 15px;
+}
+#apl .apl-table{
+    padding: 0 15px 15px 15px;
+}
+#apl .apl-tool select{
+    height: 30px;
+}
+#apl .apl-tool input{
+    height: 30px;
+    padding: 0 5px;
+}
+
+#apl .apl-table table{
+    width: 100%;
+}
+#apl .apl-table td{
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+#apl .apl-table td a{
+    color: #E4393C;
+    font-weight: bold;
+}
